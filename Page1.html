@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cibus Africanus</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, Arial, sans-serif;
+}
+
+body {
+  overflow: hidden;
+  color: white;
+}
+
+/* NAVBAR */
+header {
+  position: fixed;
+  width: 100%;
+  padding: 18px 50px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  align-items: center;
+   background:linear-gradient(to right,#2b1b0f,#8b4513,#c97b2a);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+}
+header img{
+  width:64px;
+  border-radius:14px;
+  box-shadow:0 6px 16px rgba(0,0,0,.5);
+}
+header .span1 {
+ color: tomato;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+header .span2 {
+  color: tomato;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+ 
+
+/* BACKGROUND IMAGE */
+.bg {
+  position: fixed;
+  inset: 0;
+  background: url('Aingredient.png') center/cover no-repeat;
+  transform: scale(1.15);
+  z-index: -2;
+  transition: transform 0.1s linear;
+}
+
+/* DARK OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85));
+  z-index: -1;
+}
+
+/* CENTER CONTENT */
+.center-content {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.center-content h2 {
+  font-size: 3.2rem;
+  margin-bottom: 15px;
+}
+
+.center-content p {
+  opacity: 0.8;
+  margin-bottom: 25px;
+}
+
+/* BUTTON */
+.btn {
+  padding: 14px 45px;
+  border-radius: 40px;
+  border: none;
+  background: tomato;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 10px 25px tomato;
+}
+
+.btn:hover {
+  background: white;
+  transform: scale(1.08);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png" alt="">
+  <span class="span1">
+    <span>C</span>
+    <span>I</span>
+    <span>B</span>
+    <span>U</span>
+    <span>S</span>
+  </span>
+ <span class="span2">
+    <span>A</span>
+    <span>F</span>
+    <span>R</span>
+    <span>I</span>
+    <span>C</span>
+    <span>A</span>
+    <span>N </span>
+    <span>U</span>
+    <span>S</span>
+ </span>
+
+</header>
+
+<div class="bg" id="bg"></div>
+<div class="overlay"></div>
+
+<div class="center-content">
+  <div>
+    <h2></h2>
+    <p>Venez à la decouverte des repas authentique de l'Afrique, Choisissez <em style="font-size: 25px;font-weight: bold;">CIBUS AFRICANUS</em></p>
+    <button class="btn"><a href="index.html">Accéder au site</a></button>
+  </div>
+</div>
+<style>
+  .btn a {
+    text-decoration: none;
+    color: black;
+  }
+</style>
+
+<script>
+// PARALLAX MOUSE EFFECT
+const bg = document.getElementById("bg");
+
+window.addEventListener("mousemove", (e) => {
+  let x = (e.clientX / window.innerWidth - 0.5) * 12;
+  let y = (e.clientY / window.innerHeight - 0.5) * 12;
+  bg.style.transform = `scale(1.2) translate(${x}px, ${y}px)`;
+});
+
+// SLOW CINEMATIC ZOOM
+let zoom = 1.15;
+setInterval(() => {
+  zoom += 0.0000015;
+  bg.style.transform = `scale(${zoom})`;
+}, 25);
+</script>
+
+</body>
+</html>

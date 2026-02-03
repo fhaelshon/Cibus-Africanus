@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plats Traditionnels Africains</title>
+
+<style>
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    font-family:'Segoe UI',sans-serif;
+    background:#faf5ef;
+    color:#2b1b0f;
+    line-height:1.7;
+}
+
+/* NAVBAR */
+nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:14px 6%;
+    background:linear-gradient(to right,#2b1b0f,#8b4513,#c97b2a);
+    z-index:1000;
+    color:white;
+}
+
+nav .logo {
+    width:64px;
+    border-radius:14px;
+    box-shadow:0 6px 16px rgba(0,0,0,.5);
+}
+
+nav ul {
+    display:flex;
+    gap:16px;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    padding:8px 16px;
+    border-radius:20px;
+    transition:.3s;
+    background:rgba(0,0,0,.25);
+}
+
+nav a:hover{
+    background:#ffd27a;
+    color:#2b1b0f;
+}
+
+h1 {
+    text-align:center;
+    margin-bottom:25px;
+    margin-top:150px;
+}
+
+/* GRID */
+.container {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+    padding:15px 18px;
+}
+
+/* CARDS */
+.card {
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 12px rgba(0,0,0,0.1);
+    transition:transform 0.2s;
+}
+
+.card:hover {
+    transform:scale(1.02);
+}
+
+.card img {
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.card-content {
+    padding:15px;
+}
+
+button {
+    margin-top:10px;
+    padding:8px 12px;
+    background:#d35400;
+    border:none;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+button:hover {
+    background:#b84300;
+}
+
+.recipe {
+    display:none;
+    margin-top:10px;
+    font-size:14px;
+}
+
+/* FORM SECTION */
+.inscrire {
+    background:#f3e5ab;
+    padding:20px;
+    margin:20px;
+    border-radius:10px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+}
+
+.form-box {
+    max-width:420px;
+    margin:auto;
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(0,0,0,0.35);
+}
+
+.section {
+    height:90px;
+    position:relative;
+    background:#f9fafb;
+}
+
+.bubble {
+    position:absolute;
+    border-radius:50%;
+    animation:float 4s infinite ease-in-out alternate;
+}
+
+.blue { width:35px;height:35px;background:#3b82f6;top:20px;left:20%; }
+.red { width:45px;height:45px;background:#ef4444;top:40px;left:45%;animation-delay:1s; }
+.green { width:30px;height:30px;background:#10b981;top:25px;left:70%;animation-delay:2s; }
+
+@keyframes float {
+    from { transform:translateY(0px); }
+    to { transform:translateY(-15px); }
+}
+
+.form-content {
+    padding:25px;
+}
+
+.form-content h2 {
+    text-align:center;
+    margin-bottom:20px;
+    color:#111827;
+}
+
+.form-content input,
+.form-content select {
+    width:100%;
+    padding:10px;
+    margin-bottom:14px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    outline:none;
+}
+
+.form-content input:focus,
+.form-content select:focus {
+    border-color:#3b82f6;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<img src="logo.png" alt="Logo" class="logo">
+<ul>
+<li><a href="#plats">Nos plats</a></li>
+<li><a href="#Contacts">Contacts</a></li>
+<li><a href="#sinscrire">S'inscrire</a></li>
+
+</ul>
+</nav>
+
+<h1>🍛 Plats Traditionnels Africains</h1>
+
+<section class="container" id="plats">
+
+<!-- 1 -->
+<div class="card">
+<img src="poulet braisé.png">
+<div class="card-content">
+<h3>Poulet Braisé</h3>
+<p>Poulet grillé mariné aux épices africaines.</p>
+<button onclick="toggleRecipe(1)">Voir la recette</button>
+<div class="recipe" id="recipe1">
+<strong>Ingrédients :</strong> Poulet, ail, oignon, piment, épices, huile.<br>
+<strong>Étapes :</strong> Mariner 2h, griller doucement.
+</div>
+</div>
+</div>
+
+<!-- 2 -->
+<div class="card">
+<img src="riz.jollof.png">
+<div class="card-content">
+<h3>Riz Jollof</h3>
+<p>Riz africain à la tomate épicée.</p>
+<button onclick="toggleRecipe(2)">Voir la recette</button>
+<div class="recipe" id="recipe2">
+<strong>Ingrédients :</strong> Riz, tomate, oignon, ail, piment.<br>
+<strong>Étapes :</strong> Faire sauce tomate, ajouter riz, cuire.
+</div>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="card">
+<img src="igname pilée.png">
+<div class="card-content">
+<h3>Igname Pilée</h3>
+<p>Pâte d’igname servie avec sauce.</p>
+<button onclick="toggleRecipe(3)">Voir la recette</button>
+<div class="recipe" id="recipe3">
+<strong>Ingrédients :</strong> Igname, eau, sel.<br>
+<strong>Étapes :</strong> Cuire puis piler jusqu’à lisse.
+</div>
+</div>
+</div>
+
+<!-- 4 -->
+<div class="card">
+<img src="sauce egusi.png">
+<div class="card-content">
+<h3>Sauce Egusi</h3>
+<p>Sauce aux graines de melon.</p>
+<button onclick="toggleRecipe(4)">Voir la recette</button>
+<div class="recipe" id="recipe4">
+<strong>Ingrédients :</strong> Egusi, huile rouge, viande, poisson.<br>
+<strong>Étapes :</strong> Faire revenir, ajouter eau, cuire.
+</div>
+</div>
+</div>
+
+<!-- 5 -->
+<div class="card">
+<img src="atchiéké poison.png">
+<div class="card-content">
+<h3>Attiéké Poisson</h3>
+<p>Couscous de manioc avec poisson.</p>
+<button onclick="toggleRecipe(5)">Voir la recette</button>
+<div class="recipe" id="recipe5">
+<strong>Ingrédients :</strong> Attiéké, poisson, oignon, citron.<br>
+<strong>Étapes :</strong> Cuire poisson, servir avec attiéké.
+</div>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="card">
+<img src="pate maÏs.png">
+<div class="card-content">
+<h3>Pâte de Maïs</h3>
+<p>Pâte accompagnée de sauce tomate.</p>
+<button onclick="toggleRecipe(6)">Voir la recette</button>
+<div class="recipe" id="recipe6">
+<strong>Ingrédients :</strong> Farine de maïs, eau, sel.<br>
+<strong>Étapes :</strong> Mélanger, cuire jusqu’à épais.
+</div>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="card">
+<img src="ndole.png">
+<div class="card-content">
+<h3>Ndolé</h3>
+<p>Plat camerounais aux feuilles amères.</p>
+<button onclick="toggleRecipe(7)">Voir la recette</button>
+<div class="recipe" id="recipe7">
+<strong>Ingrédients :</strong> Feuilles, pâte d’arachide, viande.<br>
+<strong>Étapes :</strong> Cuire feuilles, mélanger sauce.
+</div>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="card">
+<img src="foufou.png">
+<div class="card-content">
+<h3>Foufou & Sauce</h3>
+<p>Pâte de manioc ou igname.</p>
+<button onclick="toggleRecipe(8)">Voir la recette</button>
+<div class="recipe" id="recipe8">
+<strong>Ingrédients :</strong> Manioc, eau.<br>
+<strong>Étapes :</strong> Cuire, piler, former boule.
+</div>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="card">
+<img src="gari foto.png">
+<div class="card-content">
+<h3>Garri & Sauce</h3>
+<p>Semoule de manioc.</p>
+<button onclick="toggleRecipe(9)">Voir la recette</button>
+<div class="recipe" id="recipe9">
+<strong>Ingrédients :</strong> Garri, eau chaude, sauce.<br>
+<strong>Étapes :</strong> Mélanger et servir.
+</div>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="card">
+<img src="images/yassa.jpg">
+<div class="card-content">
+<h3>Poulet Yassa</h3>
+<p>Poulet mariné aux oignons et citron.</p>
+<button onclick="toggleRecipe(10)">Voir la recette</button>
+<div class="recipe" id="recipe10">
+<strong>Ingrédients :</strong> Poulet, citron, oignon, moutarde.<br>
+<strong>Étapes :</strong> Mariner, cuire, servir avec riz.
+</div>
+</div>
+</div>
+
+<!-- 11 -->
+<div class="card">
+<img src="mafé.png">
+<div class="card-content">
+<h3>Mafé</h3>
+<p>Sauce africaine aux arachides.</p>
+<button onclick="toggleRecipe(11)">Voir la recette</button>
+<div class="recipe" id="recipe11">
+<strong>Ingrédients :</strong> Pâte d’arachide, viande, tomate.<br>
+<strong>Étapes :</strong> Cuire lentement.
+</div>
+</div>
+</div>
+
+<!-- 12 -->
+<div class="card">
+<img src="Thieboudienne.png">
+<div class="card-content">
+<h3>Thieboudienne</h3>
+<p>Riz au poisson sénégalais.</p>
+<button onclick="toggleRecipe(12)">Voir la recette</button>
+<div class="recipe" id="recipe12">
+<strong>Ingrédients :</strong> Riz, poisson, légumes, tomate.<br>
+<strong>Étapes :</strong> Cuire poisson, ajouter riz.
+</div>
+</div>
+</div>
+
+<!-- 13 -->
+<div class="card">
+<img src="akassa.png">
+<div class="card-content">
+<h3>Akassa</h3>
+<p>Pâte fermentée de maïs (Bénin).</p>
+<button onclick="toggleRecipe(13)">Voir la recette</button>
+<div class="recipe" id="recipe13">
+<strong>Ingrédients :</strong> Maïs, eau.<br>
+<strong>Étapes :</strong> Fermenter, cuire, mélanger.
+</div>
+</div>
+</div>
+
+<!-- 14 -->
+<div class="card">
+<img src="abobo +saucepng.png">
+<div class="card-content">
+<h3>Abobo & Sauce</h3>
+<p>Riz blanc et sauce tomate (Bénin).</p>
+<button onclick="toggleRecipe(14)">Voir la recette</button>
+<div class="recipe" id="recipe14">
+<strong>Ingrédients :</strong> Riz, tomate, oignon.<br>
+<strong>Étapes :</strong> Cuire riz, préparer sauce.
+</div>
+</div>
+</div>
+
+<!-- 15 -->
+<div class="card">
+<img src="Koklo Meme.png">
+<div class="card-content">
+<h3>Koklo Meme</h3>
+<p>Poulet frit épicé africain.</p>
+<button onclick="toggleRecipe(15)">Voir la recette</button>
+<div class="recipe" id="recipe15">
+<strong>Ingrédients :</strong> Poulet, piment, ail, épices.<br>
+<strong>Étapes :</strong> Assaisonner, frire croustillant.
+</div>
+</div>
+</div>
+</section>
+
+<section id="retour">
+     <div class="suivant">
+            <p><a href="index.html">⬅Retour</a></p>
+                <style>
+                    .suivant p {
+                        margin-top: 25px;
+                        text-align: center;
+                        font-weight: bold;
+                        color: #8b4513;
+                        cursor: pointer;
+                    }
+                    .suivant p a {
+                        padding: 10px 8px;
+                        text-decoration: none;
+                        color: #8b4513;
+                        border-radius: 15px;
+                    }
+                    .suivant p a:hover {
+                        color: #ffb347;
+                        background: #8b4513;
+                        box-shadow: 0px 4px 8px black;
+                    
+                    }
+                </style>
+        </div>
+
+</section>
+<section class="Contacts" id="Contacts">
+    <h1>Contacts</h1>
+    <div class="Contacts-content">
+            <div class="objet-contacts">
+                <div class="image">
+                    <!-- <img src="Telephone.png" alt="Téléphone"> -->
+                     <span>☎</span>
+                    <span>Téléphone</span>
+                    <p><a href="#">+229 01 00 00 00 00</a></p>
+                </div>
+            </div>
+            <div class="content-contact">
+                <div class="image">
+                    <!-- <img src="Localisation.png" alt="Localisation"> -->
+                     <span>🌍</span>
+                    <span>Localisation</span>
+                    <p><a href="#">ATLANTIQUE, AB-Calavi</a></p>
+                </div>
+            </div>
+            <div class="content-contact">
+                <div class="image">
+                    <!-- <img src="Mails.png" alt="Mails"> -->
+                    <span>📩</span>
+                    <span>Mails</span>
+                    <p><a href="#">CibusAfricanus@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="content-contact">
+                <div class="image">
+                    <!-- <img src="Horloge.jpg" alt="Horaires"> -->
+                     <span>🕒</span>
+                    <span>Horaires</span>
+                    <p>7AM - 2PM</p>
+                </div>
+            </div>
+        </div>
+     <style>
+        .Contacts{
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            padding: 20px;
+            border-radius: 15px;
+            
+        }
+        .Contacts .Contacts-content{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            column-gap: 145px;
+            row-gap: 50px;
+             padding: 20px;
+            place-items: center;
+            background: #f3e5ab;
+            border-radius: 15px;
+        }
+         .Contacts .Contacts-content .image p a{
+            margin: 15px 0px;
+            text-decoration: none;
+            color :cadetblue;
+            font-weight: bold;
+        }
+        .Contacts .Contacts-content .image p {
+            color :cadetblue;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .Contacts{
+                display: grid;
+                place-items: center;
+                row-gap: 15px;
+            }
+            .Contacts .Contacts-content {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                row-gap: 15px;
+                gap: 30px;
+                
+            }
+            .Contacts .Contacts-content .image {
+                width: 100%;
+                text-align: center;
+            }
+            .Contacts .Contacts-content .image img {
+                margin-bottom: 10px;
+            }
+        }
+     </style>
+</section>
+
+<section id="sinscrire" class="inscrire">
+
+<div class="form-box">
+
+<div class="section">
+<div class="bubble blue"></div>
+<div class="bubble red"></div>
+<div class="bubble green"></div>
+</div>
+
+<div class="form-content">
+<h2>Créer un compte</h2>
+<form>
+<input type="text" placeholder="Nom complet" required>
+<input type="email" placeholder="Adresse email" required>
+<input type="password" placeholder="Mot de passe" required>
+<input type="tel" placeholder="Téléphone">
+
+<select>
+<option>Pays</option>
+<option>Bénin</option>
+<option>Nigeria</option>
+<option>Ghana</option>
+<option>Sénégal</option>
+</select>
+
+<button type="submit">S'inscrire</button>
+</form>
+</div>
+
+<div class="section">
+<div class="bubble blue"></div>
+<div class="bubble red"></div>
+<div class="bubble green"></div>
+</div>
+
+</div>
+</section>
+
+<script>
+function toggleRecipe(id) {
+    let recipe = document.getElementById("recipe" + id);
+    recipe.style.display = recipe.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>

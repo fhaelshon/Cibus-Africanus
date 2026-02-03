@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CIBUS AFRICANUS</title>
+
+  <style>
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body {font-family:'Segoe UI',sans-serif;background:#faf5ef;color:#2b1b0f;line-height:1.7;}
+
+
+    nav {
+      display:flex;justify-content:space-between;align-items:center;
+      position:fixed;top:0;left:0;width:100%;padding:14px 6%;
+      background:linear-gradient(to right,#2b1b0f,#8b4513,#c97b2a);
+      z-index:1000;color:white;
+    }
+    nav .logo {width:64px;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.5);}
+    nav ul {display:flex;gap:16px;list-style:none;}
+    nav a {color:white;text-decoration:none;font-weight:700;padding:8px 16px;border-radius:20px;transition:.3s;background:rgba(0,0,0,.25);} 
+    nav a:hover {background:#ffd27a;color:#2b1b0f;}
+
+
+    header {
+      height:100vh;background:url('Aingredient.png') center/cover no-repeat;
+      display:flex;align-items:center;justify-content:center;text-align:center;
+      position:relative;color:white;padding:0 8%;
+    }
+    header::before {content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.65),rgba(0,0,0,.4));}
+    .accueilcontent {position:relative;z-index:1;}
+    .accueilcontent h2 {font-size:6rem;letter-spacing:18px;text-shadow:0 6px 14px black;color:#ffd27a;}
+    .accueilcontent h1 {font-size:3.3rem;margin-top:10px;color:#ffb347;}
+    .accueilcontent p {font-size:1.5rem;margin-top:12px;color:#f5deb3;}
+
+
+    .pattern-bar {height:10px;background:repeating-linear-gradient(45deg,#8b4513 0 10px,#ffd27a 10px 20px,#2b1b0f 20px 30px);} 
+
+    section {padding:90px 8%;}
+    h2 {text-align:center;margin-bottom:40px;color:#8b4513;font-size:2.4rem;}
+
+ 
+    .plats {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px;}
+    .plat {background:white;border-radius:16px;overflow:hidden;box-shadow:0 8px 18px rgba(0,0,0,.12);transition:.35s;}
+    .plat:hover {transform:translateY(-8px) scale(1.04);}
+    .plat img {width:100%;height:210px;object-fit:cover;background:#ddd;}
+    .plat div {padding:18px;}
+    .plat h3 {color:#8b4513;}
+
+
+    .gallery {display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
+    .gallery img {width:100%;border-radius:14px;transition:.3s;}
+    .gallery img:hover {transform:scale(1.05);}
+
+
+    footer {background:#2b1b0f;color:#ffd27a;text-align:center;padding:24px;font-weight:600;}
+
+
+    @media(max-width:768px){
+      .accueilcontent h2{font-size:3rem;
+        letter-spacing:10px;}
+      .accueilcontent h1{font-size:2.3rem;}
+    }
+    @media(max-width:520px){
+      nav ul{display:none;}
+      header{padding-top:90px;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <img src="logo.png" alt="Logo" class="logo" />
+    <ul>
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#plats">Nos plats</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="accueil">
+    <div class="accueilcontent">
+      <h2>WELCOME</h2>
+      <h1>CIBUS AFRICANUS</h1>
+      <p>Découvrez les mets exceptionnels d’Afrique</p>
+    </div>
+  </header>
+
+  <section id="plats">
+    <h2>Nos plats traditionnels</h2>
+    <div class="plats">
+      <div class="plat">
+        <img src="atchiéké poison.png" alt="Attiéké Poisson" />
+        <div>
+          <h3>Attiéké Poisson</h3>
+          <p>Spécialité ivoirienne à base de manioc fermenté.</p>
+        </div>
+      </div>
+
+      <div class="plat">
+        <img src="Thieboudienne.png" alt="Thieboudienne" />
+        <div>
+          <h3>Thieboudienne</h3>
+          <p>Plat national sénégalais au riz et poisson.</p>
+        </div>
+      </div>
+
+      <div class="plat">
+            <img src="foufou+gombo.png" alt="Fufu & Gombo" />
+            <div>
+                <h3>Fufu & Sauce Gombo</h3>
+                <p>Plat populaire en Afrique de l’Ouest.</p>
+            </div>
+      </div>
+
+      <div class="plat">
+            <img src="yassa poulet.png" alt="Yassa Poulet" />
+            <div>
+                <h3>Yassa Poulet</h3>
+                <p>Poulet mariné aux oignons et citron.</p>
+            </div>
+      </div>
+    </div>
+    <div class="suivant">
+        <p><a href="page2.html">Aller au suivant➡</a></p>
+        <style>
+            .suivant p {
+                margin-top: 25px;
+                text-align: right;
+                font-weight: bold;
+                color: #8b4513;
+                cursor: pointer;
+            }
+            .suivant p a {
+                padding: 10px 8px;
+                text-decoration: none;
+                color: #8b4513;
+                border-radius: 15px;
+            }
+            .suivant p a:hover {
+                color: #ffb347;
+                background: #8b4513;
+                box-shadow: 0px 4px 8px black;
+              
+            }
+        </style>
+    </div>
+  </section>
+
+  <section id="apropos">
+    <h2>À propos</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+      CIBUs AFRICANUS est une plateforme dédiée à la promotion des plats traditionnels
+      africains. Chaque recette raconte une histoire, une culture et un héritage unique.
+    </p>
+  </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p style="text-align:center;">
+        📧 CibusAfricanus@gmail.com <br />
+        Afrique de l’Ouest
+        </p>
+        <div class="sms">
+                <h4>Laissez-nous un Mail</h4>
+                <form action="">
+                    <input type="text" placeholder="Votre Mail ou Contact" required required="@">
+                    <textarea placeholder="Tapez votre message"></textarea>
+                    <button type="submit">Envoyer</button>
+                </form>
+            <style>             
+            .sms{
+                
+                padding: 15px;
+                border: 1px solid rgba(255,255,255,0.3);
+                border-radius: 16px;
+                background: #301400;
+                backdrop-filter: blur(10px);
+                
+            }
+
+            .sms h4{
+                text-align: center;
+                font-size: 22px;
+                text-shadow: 1px 2px 12px tomato;
+                margin-bottom: 15px;
+            }
+
+            .sms form{
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                
+            }
+
+            .sms input,
+            .sms textarea{
+                font-size: 16px;
+                padding: 12px 16px;
+                border-radius: 12px;
+                border: 1px solid rgba(255,255,255,0.3);
+                background: transparent;
+                color: white;
+                outline: none;
+            }
+
+            .sms textarea{
+                min-height: 120px;
+                resize: none;
+            }
+
+            .sms input:focus,
+            .sms textarea:focus{
+                border: 2px solid white;
+                border-color: tomato;
+            }
+
+
+            .sms button{
+                padding: 12px;
+                border-radius: 12px;
+                background: tomato;
+                color: white;
+                font-weight: bold;
+                border: none;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .sms button:hover{
+                background: white;
+                color: black;
+            }
+
+
+            @media (max-width: 768px){
+                .More{
+                    padding: 40px 6%;
+                }
+            }
+            </style>
+        </div>
+
+        <div class="suivant">
+            <p><a href="Page1.html">Page1</a></p>
+                <style>
+                    .suivant p {
+                        margin-top: 25px;
+                        text-align: right;
+                        font-weight: bold;
+                        color: #8b4513;
+                        cursor: pointer;
+                    }
+                    .suivant p a {
+                        padding: 10px 8px;
+                        text-decoration: none;
+                        color: #8b4513;
+                        border-radius: 15px;
+                    }
+                    .suivant p a:hover {
+                        color: #ffb347;
+                        background: #8b4513;
+                        box-shadow: 0px 4px 8px black;
+                    
+                    }
+                </style>
+        </div>
+    </section>
+
+    <footer>
+        <p>Tout droit réservés</p>
+        <p>Copyright@2026, Coding by Fhaelshon</p>
+        <div class="emojis">
+            <span>🌍</span>
+            <span>☎</span>
+            <span>✈</span>
+        </div>
+        <div class="image">
+            <a href="#"><img src="facebook.png" alt="facebook"></a>
+            <a href="#"><img src="Whatsapp.png" alt="whatsapp"></a>
+            <a href="#"><img src="twitter.png" alt="twitter"></a>
+            <a href="#"><img src="Tiktok.png" alt="tiktok"></a>
+            <a href="#"><img src="youtube.png" alt="youtube"></a>
+        </div>
+        <style>
+        footer{
+            width: 100%;
+            height: 225px;
+            background:linear-gradient(to right,#2b1b0f,#8b4513,#c97b2a);
+            color: whitesmoke;
+            display: grid;
+            place-items: center;
+        }
+        footer p{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', serif ;
+        }
+        footer .emojis{
+            cursor: pointer;
+            zoom: 2;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            column-gap: 15px;
+        }
+        footer .image{
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            column-gap: 25px;
+        }
+        footer .image img{
+            color: aliceblue;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+            background: rgb(49, 49, 49);
+        }
+        </style>
+    </footer>
+</body>
+</html>
